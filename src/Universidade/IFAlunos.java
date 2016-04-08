@@ -5,12 +5,14 @@
  */
 package Universidade;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Gustavo
  */
 public class IFAlunos extends javax.swing.JInternalFrame {
-
+    Alunos alunos = new Alunos();
     /**
      * Creates new form IFAlunos
      */
@@ -18,6 +20,9 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         initComponents();
     }
 
+    
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,7 +32,22 @@ public class IFAlunos extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jButton1 = new javax.swing.JButton();
+        jTCodigo = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTNome = new javax.swing.JTextField();
+        jPanel1 = new javax.swing.JPanel();
+        jRMasc = new javax.swing.JRadioButton();
+        jRFem = new javax.swing.JRadioButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jBSalvar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jTCidade = new javax.swing.JTextField();
+        jBCancelar = new javax.swing.JButton();
+
+        setTitle("Cadastro de Alunos");
 
         jButton1.setText("Sair");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -36,21 +56,138 @@ public class IFAlunos extends javax.swing.JInternalFrame {
             }
         });
 
+        jLabel1.setText("Codigo:");
+
+        jLabel2.setText("Nome:");
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo: "));
+        jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
+                jPanel1AncestorAdded(evt);
+            }
+            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+        });
+
+        jRMasc.setText("Masculino");
+        jRMasc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRMascActionPerformed(evt);
+            }
+        });
+
+        jRFem.setText("Feminino");
+        jRFem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRFemActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jRMasc)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRFem)
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(jRMasc)
+                .addComponent(jRFem))
+        );
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+
+        jBSalvar.setText("Salvar");
+        jBSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBSalvarMouseClicked(evt);
+            }
+        });
+
+        jLabel3.setText("Cidade:");
+
+        jBCancelar.setText("Cancelar");
+        jBCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jBCancelarMouseClicked(evt);
+            }
+        });
+        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBCancelarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(321, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(22, 22, 22))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(138, 138, 138)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTCidade))
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jBSalvar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jBCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1)))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(244, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1)
+                            .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(11, 11, 11)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addGap(16, 16, 16)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTCidade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(69, 69, 69)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBSalvar)
+                    .addComponent(jButton1)
+                    .addComponent(jBCancelar))
+                .addGap(15, 15, 15))
         );
 
         pack();
@@ -62,8 +199,72 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_jButton1MouseClicked
 
+    private void jPanel1AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jPanel1AncestorAdded
+        // TODO add your handling code here:
+          
+    }//GEN-LAST:event_jPanel1AncestorAdded
+
+    private void jRMascActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRMascActionPerformed
+        // TODO add your handling code here:
+        if(jRMasc.isSelected()==true){
+            jRFem.setSelected(false);
+            alunos.alunos_sexo = "Masculino";
+            
+        }
+          
+    }//GEN-LAST:event_jRMascActionPerformed
+
+    private void jRFemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRFemActionPerformed
+        // TODO add your handling code here:
+         if(jRFem.isSelected()==true){
+            jRMasc.setSelected(false);
+            alunos.alunos_sexo = "Feminino";
+            
+            
+        }
+    }//GEN-LAST:event_jRFemActionPerformed
+
+    private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
+        // TODO add your handling code here:
+        alunos.alunos_codigo = Integer.valueOf(jTCodigo.getText());
+        alunos.alunos_nome = String.valueOf(jTNome.getText());
+        alunos.alunos_cidade = String.valueOf(jTCidade.getText());
+        JOptionPane.showMessageDialog(null,"Codigo: " + alunos.alunos_codigo + "\n" + 
+                                           "Nome: " + alunos.alunos_nome + "\n" + 
+                                           "Cidade: " + alunos.alunos_cidade + "\n" + 
+                                           "Sexo: " + alunos.alunos_sexo);
+        
+    }//GEN-LAST:event_jBSalvarMouseClicked
+
+    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBCancelarActionPerformed
+
+    private void jBCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseClicked
+        // TODO add your handling code here:
+        jTCodigo.setText(null);
+        jTNome.setText(null);
+        jTCidade.setText(null);
+        jRFem.setSelected(false);
+        jRMasc.setSelected(false);
+       
+    }//GEN-LAST:event_jBCancelarMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jBCancelar;
+    private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton jRFem;
+    private javax.swing.JRadioButton jRMasc;
+    private javax.swing.JTextField jTCidade;
+    private javax.swing.JTextField jTCodigo;
+    private javax.swing.JTextField jTNome;
     // End of variables declaration//GEN-END:variables
 }
