@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class IFAlunos extends javax.swing.JInternalFrame {
     Alunos alunos = new Alunos();
+    private Acoes acoesbotao = new Acoes(this);
     /**
      * Creates new form IFAlunos
      */
@@ -21,6 +22,22 @@ public class IFAlunos extends javax.swing.JInternalFrame {
     }
 
     
+    public Alunos getInfoAluno() {
+        
+        Alunos infoaluno = new Alunos();
+        infoaluno.setAlunos_codigo(Integer.valueOf(jTCodigo.getText()));
+        infoaluno.setAlunos_nome(String.valueOf(jTNome.getText()));
+        infoaluno.setAlunos_cidade(String.valueOf(jTCidade.getText()));
+        if (jRMasc.isSelected()){
+            infoaluno.setAlunos_sexo(String.valueOf(jRMasc.getText()));
+        }else{
+            infoaluno.setAlunos_sexo(String.valueOf(jRFem.getText()));  
+        }
+        infoaluno.setAlunos_estado(String.valueOf(jCEstados.getSelectedItem()));
+        return infoaluno;
+         
+        
+    }
 
     
     /**
@@ -41,11 +58,10 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jRMasc = new javax.swing.JRadioButton();
         jRFem = new javax.swing.JRadioButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCEstados = new javax.swing.JComboBox<>();
         jBSalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTCidade = new javax.swing.JTextField();
-        jBCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Alunos");
 
@@ -62,12 +78,12 @@ public class IFAlunos extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo: "));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -103,28 +119,23 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                 .addComponent(jRFem))
         );
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jBSalvar.setText("Salvar");
+        jBSalvar.addActionListener(acoesbotao);
+        jBSalvar.setActionCommand("salvar");
         jBSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBSalvarMouseClicked(evt);
             }
         });
+        jBSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalvarActionPerformed(evt);
+            }
+        });
 
         jLabel3.setText("Cidade:");
-
-        jBCancelar.setText("Cancelar");
-        jBCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBCancelarMouseClicked(evt);
-            }
-        });
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -138,7 +149,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(138, 138, 138)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel2)
@@ -153,11 +164,9 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                                 .addComponent(jTCidade))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(151, 151, 151)
+                        .addGap(220, 220, 220)
                         .addComponent(jBSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(18, 18, 18)
                         .addComponent(jButton1)))
                 .addContainerGap(12, Short.MAX_VALUE))
         );
@@ -171,7 +180,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -185,8 +194,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvar)
-                    .addComponent(jButton1)
-                    .addComponent(jBCancelar))
+                    .addComponent(jButton1))
                 .addGap(15, 15, 15))
         );
 
@@ -226,37 +234,26 @@ public class IFAlunos extends javax.swing.JInternalFrame {
 
     private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
         // TODO add your handling code here:
-        alunos.alunos_codigo = Integer.valueOf(jTCodigo.getText());
+       /* alunos.alunos_codigo = Integer.valueOf(jTCodigo.getText());
         alunos.alunos_nome = String.valueOf(jTNome.getText());
         alunos.alunos_cidade = String.valueOf(jTCidade.getText());
         JOptionPane.showMessageDialog(null,"Codigo: " + alunos.alunos_codigo + "\n" + 
                                            "Nome: " + alunos.alunos_nome + "\n" + 
                                            "Cidade: " + alunos.alunos_cidade + "\n" + 
-                                           "Sexo: " + alunos.alunos_sexo);
+                                           "Sexo: " + alunos.alunos_sexo);*/
         
     }//GEN-LAST:event_jBSalvarMouseClicked
 
-    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
+    private void jBSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jBCancelarActionPerformed
-
-    private void jBCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseClicked
-        // TODO add your handling code here:
-        jTCodigo.setText(null);
-        jTNome.setText(null);
-        jTCidade.setText(null);
-        jRFem.setSelected(false);
-        jRMasc.setSelected(false);
-       
-    }//GEN-LAST:event_jBCancelarMouseClicked
+    }//GEN-LAST:event_jBSalvarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCEstados;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

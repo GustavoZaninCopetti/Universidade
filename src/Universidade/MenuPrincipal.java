@@ -28,8 +28,8 @@ public class MenuPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Usuario ou senha Incorreta!");
             jMenuBar1.setVisible(false);
         }*/
-         jMenuItemAluno.setVisible(false);
-         jMenuItemProfessor.setVisible(false);
+         /*jMenuItemAluno.setVisible(false);
+         jMenuItemProfessor.setVisible(false);*/
     }
 
     /**
@@ -44,9 +44,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jMenu = new javax.swing.JMenuBar();
         jMenuCadastro = new javax.swing.JMenu();
-        jMenuItemLogin = new javax.swing.JMenuItem();
         jMenuItemAluno = new javax.swing.JMenuItem();
         jMenuItemProfessor = new javax.swing.JMenuItem();
+        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuSobre = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuSair = new javax.swing.JMenu();
@@ -66,14 +66,6 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
         jMenuCadastro.setText("Cadastros");
 
-        jMenuItemLogin.setText("Login");
-        jMenuItemLogin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItemLoginActionPerformed(evt);
-            }
-        });
-        jMenuCadastro.add(jMenuItemLogin);
-
         jMenuItemAluno.setText("Alunos");
         jMenuItemAluno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,6 +81,14 @@ public class MenuPrincipal extends javax.swing.JFrame {
             }
         });
         jMenuCadastro.add(jMenuItemProfessor);
+
+        jMenuItem1.setText("Curso");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenuCadastro.add(jMenuItem1);
 
         jMenu.add(jMenuCadastro);
 
@@ -136,24 +136,18 @@ public class MenuPrincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_jMenuSairMouseClicked
 
-    private void jMenuItemLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemLoginActionPerformed
-        // TODO add your handling code here:
-       /* IFLogin login = new IFLogin();
-        jDesktopPane1.add(login);
-        login.setVisible(true);
-       
-        jMenuItemAluno.setVisible(true);
-        jMenuItemProfessor.setVisible(true);
-        jMenuItemLogin.setVisible(false);   */
-        
-    }//GEN-LAST:event_jMenuItemLoginActionPerformed
-
     private void jMenuItemProfessorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemProfessorActionPerformed
         // TODO add your handling code here:
         IFProfessor professortela = new IFProfessor();
         jDesktopPane1.add(professortela);
         professortela.setVisible(true);
     }//GEN-LAST:event_jMenuItemProfessorActionPerformed
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        IFCurso cursotela = new IFCurso();
+        jDesktopPane1.add(cursotela);
+        cursotela.setVisible(true);
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -194,9 +188,9 @@ public class MenuPrincipal extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JMenuBar jMenu;
     private javax.swing.JMenu jMenuCadastro;
+    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItemAluno;
-    private javax.swing.JMenuItem jMenuItemLogin;
     private javax.swing.JMenuItem jMenuItemProfessor;
     private javax.swing.JMenu jMenuSair;
     private javax.swing.JMenu jMenuSobre;

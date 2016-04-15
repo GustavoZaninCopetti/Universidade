@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
  */
 public class IFProfessor extends javax.swing.JInternalFrame {
      Professor professor = new Professor();
+     private AcoesProfessor acoesprof = new AcoesProfessor(this);
     /**
      * Creates new form IFProfessor
      */
@@ -21,7 +22,23 @@ public class IFProfessor extends javax.swing.JInternalFrame {
        
         
     }
-
+    
+    public Professor getInfoProfessor() {
+        
+        Professor infoprofessor = new Professor();
+        infoprofessor.setProf_codigo(Integer.valueOf(jTCodigo.getText()));
+        infoprofessor.setProf_nome(String.valueOf(jTNome.getText()));
+        infoprofessor.setProf_cidade(String.valueOf(jTCidade.getText()));
+        if (jRMasc.isSelected()){
+            infoprofessor.setProf_sexo(String.valueOf(jRMasc.getText()));
+        }else{
+            infoprofessor.setProf_sexo(String.valueOf(jRFem.getText()));  
+        }
+        infoprofessor.setProf_estado(String.valueOf(jCEstados.getSelectedItem()));
+        infoprofessor.setProf_materia(String.valueOf(jTmateria.getText()));
+       // infoprofessor.setProf_datacad(String.valueOf(jFDataCad.getText()));
+        return infoprofessor;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -33,7 +50,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
         jLabel1 = new javax.swing.JLabel();
         jTCodigo = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jCEstados = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jTNome = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
@@ -47,13 +64,17 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         jTmateria = new javax.swing.JTextField();
         jFDataCad = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
-        jBCancelar = new javax.swing.JButton();
 
         setTitle("Cadastro de Professor");
 
         jLabel1.setText("Codigo:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCEstados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCEstadosActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Nome:");
 
@@ -61,12 +82,12 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo: "));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
+            }
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -103,6 +124,8 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         );
 
         jBSalvar.setText("Salvar");
+        jBSalvar.addActionListener(acoesprof);
+        jBSalvar.setActionCommand("salvarp");
         jBSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jBSalvarMouseClicked(evt);
@@ -122,18 +145,6 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Data Cadastro:");
 
-        jBCancelar.setText("Cancelar");
-        jBCancelar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBCancelarMouseClicked(evt);
-            }
-        });
-        jBCancelar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jBCancelarActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -147,11 +158,9 @@ public class IFProfessor extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBSalvar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jBCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,7 +170,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                                 .addGap(4, 4, 4)
                                 .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(138, 138, 138)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(24, 24, 24)
                                 .addComponent(jLabel2)
@@ -180,7 +189,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(jFDataCad))
                                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 21, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -194,7 +203,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -222,9 +231,8 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jBSalvar)
-                    .addComponent(jBCancelar))
-                .addContainerGap(16, Short.MAX_VALUE))
+                    .addComponent(jBSalvar))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -261,7 +269,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
     private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
         // TODO add your handling code here:
-        professor.prof_codigo = Integer.valueOf(jTCodigo.getText());
+     /*   professor.prof_codigo = Integer.valueOf(jTCodigo.getText());
         professor.prof_nome = String.valueOf(jTNome.getText());
         professor.prof_cidade = String.valueOf(jTCidade.getText());
         professor.prof_materia = String.valueOf(jTmateria.getText());
@@ -271,31 +279,18 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                                            "Cidade: " + professor.prof_cidade + "\n" + 
                                            "Sexo: " + professor.prof_sexo + "\n" +
                                            "Materia: " + professor.prof_materia);
+*/
     }//GEN-LAST:event_jBSalvarMouseClicked
 
-    private void jBCancelarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBCancelarMouseClicked
+    private void jCEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCEstadosActionPerformed
         // TODO add your handling code here:
-        jTCodigo.setText(null);
-        jTNome.setText(null);
-        jTCidade.setText(null);
-        jTmateria.setText(null);
-        jRFem.setSelected(false);
-        jRMasc.setSelected(false);
-        jFDataCad.setText(null);
-        
-        
-    }//GEN-LAST:event_jBCancelarMouseClicked
-
-    private void jBCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBCancelarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jBCancelarActionPerformed
+    }//GEN-LAST:event_jCEstadosActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBCancelar;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;
-    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JComboBox<String> jCEstados;
     private javax.swing.JFormattedTextField jFDataCad;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
