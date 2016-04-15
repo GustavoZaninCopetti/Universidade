@@ -108,6 +108,9 @@
       <Events>
         <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButton1MouseClicked"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jButton1.addActionListener(acoesbotao);&#xa;jButton1.setActionCommand(&quot;sair&quot;);"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="jTCodigo">
     </Component>

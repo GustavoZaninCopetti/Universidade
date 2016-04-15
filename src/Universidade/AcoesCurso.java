@@ -20,8 +20,8 @@ public class AcoesCurso implements ActionListener{
         this.curso = curso;
     }
     @Override
-    public void actionPerformed(ActionEvent ae) {
-          if("salvar".equals(ae.getActionCommand())){
+    public void actionPerformed(ActionEvent ce) {
+         if("salvarcurso".equals(ce.getActionCommand())){
          JOptionPane.showMessageDialog(null,"Codigo: " + curso.getInfoCurso().curso_codigo + "\n" +
                                             "Nome: " + curso.getInfoCurso().curso_nome + "\n "  + 
                                             "Localização: " + curso.getInfoCurso().curso_localizacao + "\n " + 
@@ -29,5 +29,8 @@ public class AcoesCurso implements ActionListener{
                                             "Valor Curso: " + curso.getInfoCurso().curso_valor);
             
         }
+         if("saircurso".equals(ce.getActionCommand())){
+             curso.dispose();
+         }
     }
 }

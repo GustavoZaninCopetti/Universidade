@@ -48,7 +48,7 @@ public class IFCurso extends javax.swing.JInternalFrame {
         jTLocal = new javax.swing.JTextField();
         jTSemestre = new javax.swing.JTextField();
         jTValor = new javax.swing.JTextField();
-        jBSalvar = new javax.swing.JButton();
+        jBSalvarCurso = new javax.swing.JButton();
         jBSair = new javax.swing.JButton();
 
         setTitle("Cadastro de Cursos");
@@ -63,11 +63,13 @@ public class IFCurso extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Valor:");
 
-        jBSalvar.setText("Salvar");
-        jBSalvar.addActionListener(acoescur);
-        jBSalvar.setActionCommand("salvar");
+        jBSalvarCurso.setText("Salvar");
+        jBSalvarCurso.addActionListener(acoescur);
+        jBSalvarCurso.setActionCommand("salvarcurso");
 
         jBSair.setText("Sair");
+        jBSair.addActionListener(acoescur);
+        jBSair.setActionCommand("saircurso");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,7 +105,7 @@ public class IFCurso extends javax.swing.JInternalFrame {
                         .addGap(173, 173, 173))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalvar)
+                .addComponent(jBSalvarCurso)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jBSair)
                 .addGap(16, 16, 16))
@@ -133,7 +135,7 @@ public class IFCurso extends javax.swing.JInternalFrame {
                     .addComponent(jTValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBSalvar)
+                    .addComponent(jBSalvarCurso)
                     .addComponent(jBSair))
                 .addGap(22, 22, 22))
         );
@@ -144,7 +146,7 @@ public class IFCurso extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBSair;
-    private javax.swing.JButton jBSalvar;
+    private javax.swing.JButton jBSalvarCurso;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

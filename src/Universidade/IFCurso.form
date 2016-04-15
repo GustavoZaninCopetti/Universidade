@@ -62,7 +62,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jBSalvar" min="-2" max="-2" attributes="0"/>
+              <Component id="jBSalvarCurso" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jBSair" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -99,7 +99,7 @@
               </Group>
               <EmptySpace pref="49" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jBSalvar" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jBSalvarCurso" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jBSair" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
@@ -143,18 +143,21 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTValor">
     </Component>
-    <Component class="javax.swing.JButton" name="jBSalvar">
+    <Component class="javax.swing.JButton" name="jBSalvarCurso">
       <Properties>
         <Property name="text" type="java.lang.String" value="Salvar"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jBSalvar.addActionListener(acoescur);&#xa;jBSalvar.setActionCommand(&quot;salvar&quot;);"/>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jBSalvarCurso.addActionListener(acoescur);&#xa;jBSalvarCurso.setActionCommand(&quot;salvarcurso&quot;);"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JButton" name="jBSair">
       <Properties>
         <Property name="text" type="java.lang.String" value="Sair"/>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="jBSair.addActionListener(acoescur);&#xa;jBSair.setActionCommand(&quot;saircurso&quot;);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

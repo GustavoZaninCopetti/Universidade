@@ -58,7 +58,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jRMasc = new javax.swing.JRadioButton();
         jRFem = new javax.swing.JRadioButton();
-        jBSalvar = new javax.swing.JButton();
+        jBSalvarProf = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jTmateria = new javax.swing.JTextField();
@@ -123,19 +123,26 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 .addComponent(jRFem))
         );
 
-        jBSalvar.setText("Salvar");
-        jBSalvar.addActionListener(acoesprof);
-        jBSalvar.setActionCommand("salvarp");
-        jBSalvar.addMouseListener(new java.awt.event.MouseAdapter() {
+        jBSalvarProf.setText("Salvar");
+        jBSalvarProf.addActionListener(acoesprof);
+        jBSalvarProf.setActionCommand("salvarprof");
+        jBSalvarProf.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jBSalvarMouseClicked(evt);
+                jBSalvarProfMouseClicked(evt);
             }
         });
 
         jButton1.setText("Sair");
+        jButton1.addActionListener(acoesprof);
+        jButton1.setActionCommand("sairprof");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -159,7 +166,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jBSalvar)
+                        .addComponent(jBSalvarProf)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
@@ -231,7 +238,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jBSalvar))
+                    .addComponent(jBSalvarProf))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -262,33 +269,26 @@ public class IFProfessor extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jPanel1AncestorAdded
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        // TODO add your handling code here:
-        this.dispose();
+        
 
     }//GEN-LAST:event_jButton1MouseClicked
 
-    private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
-        // TODO add your handling code here:
-     /*   professor.prof_codigo = Integer.valueOf(jTCodigo.getText());
-        professor.prof_nome = String.valueOf(jTNome.getText());
-        professor.prof_cidade = String.valueOf(jTCidade.getText());
-        professor.prof_materia = String.valueOf(jTmateria.getText());
-        
-        JOptionPane.showMessageDialog(null,"Codigo: " + professor.prof_codigo + "\n" + 
-                                           "Nome: " + professor.prof_nome + "\n" + 
-                                           "Cidade: " + professor.prof_cidade + "\n" + 
-                                           "Sexo: " + professor.prof_sexo + "\n" +
-                                           "Materia: " + professor.prof_materia);
-*/
-    }//GEN-LAST:event_jBSalvarMouseClicked
+    private void jBSalvarProfMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarProfMouseClicked
+  
+
+    }//GEN-LAST:event_jBSalvarProfMouseClicked
 
     private void jCEstadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCEstadosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jCEstadosActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jBSalvar;
+    private javax.swing.JButton jBSalvarProf;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCEstados;
     private javax.swing.JFormattedTextField jFDataCad;

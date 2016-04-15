@@ -66,6 +66,8 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         setTitle("Cadastro de Alunos");
 
         jButton1.setText("Sair");
+        jButton1.addActionListener(acoesbotao);
+        jButton1.setActionCommand("sair");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
@@ -203,7 +205,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
-        this.dispose();
+        
         
     }//GEN-LAST:event_jButton1MouseClicked
 
@@ -233,14 +235,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jRFemActionPerformed
 
     private void jBSalvarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBSalvarMouseClicked
-        // TODO add your handling code here:
-       /* alunos.alunos_codigo = Integer.valueOf(jTCodigo.getText());
-        alunos.alunos_nome = String.valueOf(jTNome.getText());
-        alunos.alunos_cidade = String.valueOf(jTCidade.getText());
-        JOptionPane.showMessageDialog(null,"Codigo: " + alunos.alunos_codigo + "\n" + 
-                                           "Nome: " + alunos.alunos_nome + "\n" + 
-                                           "Cidade: " + alunos.alunos_cidade + "\n" + 
-                                           "Sexo: " + alunos.alunos_sexo);*/
+       
         
     }//GEN-LAST:event_jBSalvarMouseClicked
 

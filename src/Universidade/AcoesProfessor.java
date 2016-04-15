@@ -22,14 +22,18 @@ public class AcoesProfessor implements ActionListener{
     
   
     @Override
-    public void actionPerformed(ActionEvent e) {
-        if("salvarp".equals(e.getActionCommand())){
+    public void actionPerformed(ActionEvent pe) {
+        if("salvarprof".equals(pe.getActionCommand())){
          JOptionPane.showMessageDialog(null,"Codigo: " + professor.getInfoProfessor().prof_codigo + "\n" +
                                             "Nome: " + professor.getInfoProfessor().prof_nome + "\n "  + 
                                             "Cidade: " + professor.getInfoProfessor().prof_cidade + "\n " + 
                                             "Sexo: " + professor.getInfoProfessor().prof_sexo + "\n " + 
                                             "Estado: " + professor.getInfoProfessor().prof_estado+ "\n " + 
                                             "Materia: " + professor.getInfoProfessor().prof_materia);
+            
+        }
+        if("sairprof".equals(pe.getActionCommand())){
+            professor.dispose();
             
         }
         

@@ -26,6 +26,9 @@ public class Acoes implements ActionListener{
                                             "Estado: " + aluno.getInfoAluno().alunos_estado);
             
         }
+        if("sair".equals(e.getActionCommand())){
+            aluno.dispose();
+        }
         
     }
     
