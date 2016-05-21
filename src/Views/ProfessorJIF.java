@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package Views;
 
+import GetsSets.Professor;
+import Listeners.ProfessorListener;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Gustavo
  */
-public class IFProfessor extends javax.swing.JInternalFrame {
+public class ProfessorJIF extends javax.swing.JInternalFrame {
      Professor professor = new Professor();
-     private AcoesProfessor acoesprof = new AcoesProfessor(this);
+     private ProfessorListener acoesprof = new ProfessorListener(this);
     /**
      * Creates new form IFProfessor
      */
-    public IFProfessor() {
+    public ProfessorJIF() {
         initComponents();
        
         
@@ -64,6 +66,8 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         jTmateria = new javax.swing.JTextField();
         jFDataCad = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
+        PExcluir = new javax.swing.JButton();
+        PConsultar = new javax.swing.JButton();
 
         setTitle("Cadastro de Professor");
 
@@ -82,12 +86,12 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo: "));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -131,6 +135,11 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 jBSalvarProfMouseClicked(evt);
             }
         });
+        jBSalvarProf.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalvarProfActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Sair");
         jButton1.addActionListener(acoesprof);
@@ -152,6 +161,19 @@ public class IFProfessor extends javax.swing.JInternalFrame {
 
         jLabel5.setText("Data Cadastro:");
 
+        PExcluir.setText("Excluir");
+        PExcluir.addActionListener(acoesprof);
+        PExcluir.setActionCommand("excluirprof");
+        PExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PExcluirActionPerformed(evt);
+            }
+        });
+
+        PConsultar.setText("Consultar");
+        PConsultar.addActionListener(acoesprof);
+        PConsultar.setActionCommand("consultarprofessor");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -167,7 +189,11 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jBSalvarProf)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PConsultar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(PExcluir)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,8 +264,10 @@ public class IFProfessor extends javax.swing.JInternalFrame {
                 .addGap(10, 10, 10)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jBSalvarProf))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(jBSalvarProf)
+                    .addComponent(PExcluir)
+                    .addComponent(PConsultar))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         pack();
@@ -249,7 +277,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(jRMasc.isSelected()==true){
             jRFem.setSelected(false);
-            professor.prof_sexo = "Masculino";
+            professor.setProf_sexo("Masculino");
 
         }
 
@@ -259,7 +287,7 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(jRFem.isSelected()==true){
             jRMasc.setSelected(false);
-            professor.prof_sexo = "Feminino";
+            professor.setProf_sexo("Feminino");
         }
     }//GEN-LAST:event_jRFemActionPerformed
 
@@ -286,8 +314,18 @@ public class IFProfessor extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void PExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PExcluirActionPerformed
+
+    private void jBSalvarProfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalvarProfActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBSalvarProfActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton PConsultar;
+    private javax.swing.JButton PExcluir;
     private javax.swing.JButton jBSalvarProf;
     private javax.swing.JButton jButton1;
     private javax.swing.JComboBox<String> jCEstados;

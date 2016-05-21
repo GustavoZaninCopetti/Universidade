@@ -3,21 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package Views;
 
+import GetsSets.Alunos;
+import Listeners.AlunosListener;
 import javax.swing.JOptionPane;
 
 /**
  *
  * @author Gustavo
  */
-public class IFAlunos extends javax.swing.JInternalFrame {
-    Alunos alunos = new Alunos();
-    private Acoes acoesbotao = new Acoes(this);
+public class AlunosJIF extends javax.swing.JInternalFrame {
+    public Alunos alunos = new Alunos();
+    private AlunosListener acoesbotao = new AlunosListener(this);
     /**
      * Creates new form IFAlunos
      */
-    public IFAlunos() {
+    public AlunosJIF() {
         initComponents();
     }
 
@@ -62,6 +64,8 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         jBSalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTCidade = new javax.swing.JTextField();
+        AExcluir = new javax.swing.JButton();
+        AConsultar = new javax.swing.JButton();
 
         setTitle("Cadastro de Alunos");
 
@@ -80,12 +84,12 @@ public class IFAlunos extends javax.swing.JInternalFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sexo: "));
         jPanel1.addAncestorListener(new javax.swing.event.AncestorListener() {
+            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
+            }
             public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
                 jPanel1AncestorAdded(evt);
             }
             public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
             }
         });
 
@@ -139,19 +143,25 @@ public class IFAlunos extends javax.swing.JInternalFrame {
 
         jLabel3.setText("Cidade:");
 
+        AExcluir.setText("Excluir");
+        AExcluir.addActionListener(acoesbotao);
+        AExcluir.setActionCommand("excluiraluno");
+        AExcluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AExcluirActionPerformed(evt);
+            }
+        });
+
+        AConsultar.setText("Consultar");
+        AConsultar.addActionListener(acoesbotao);
+        AConsultar.setActionCommand("consultaralunos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(138, 138, 138)
-                        .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(jLabel2)
@@ -166,11 +176,26 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                                 .addComponent(jTCidade))
                             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(jBSalvar)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton1)))
-                .addContainerGap(12, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(148, 148, 148))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jBSalvar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(AConsultar)
+                                .addGap(2, 2, 2)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(AExcluir)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jButton1))
+                            .addComponent(jCEstados, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,7 +221,9 @@ public class IFAlunos extends javax.swing.JInternalFrame {
                 .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBSalvar)
-                    .addComponent(jButton1))
+                    .addComponent(jButton1)
+                    .addComponent(AExcluir)
+                    .addComponent(AConsultar))
                 .addGap(15, 15, 15))
         );
 
@@ -218,7 +245,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         if(jRMasc.isSelected()==true){
             jRFem.setSelected(false);
-            alunos.alunos_sexo = "Masculino";
+            alunos.setAlunos_sexo("Masculino");
             
         }
           
@@ -228,7 +255,7 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
          if(jRFem.isSelected()==true){
             jRMasc.setSelected(false);
-            alunos.alunos_sexo = "Feminino";
+            alunos.setAlunos_sexo("Feminino");
             
             
         }
@@ -243,8 +270,14 @@ public class IFAlunos extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBSalvarActionPerformed
 
+    private void AExcluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AExcluirActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AExcluirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton AConsultar;
+    private javax.swing.JButton AExcluir;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jBSalvar;
     private javax.swing.JButton jButton1;

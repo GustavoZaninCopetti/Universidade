@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package GetsSets;
 
 /**
  *
  * @author Gustavo
  */
 public class Alunos {
-        
-    Integer alunos_codigo;
-    String alunos_nome;
-    String alunos_cidade;
-    String alunos_sexo;
-    String alunos_estado;
+
+    private Integer alunos_codigo;
+    private String alunos_nome;
+    private String alunos_cidade;
+    private String alunos_sexo;
+    private String alunos_estado;
 
     public Integer getAlunos_codigo() {
         return alunos_codigo;
@@ -57,7 +57,4 @@ public class Alunos {
         this.alunos_estado = alunos_estado;
     }
 
-   
-    
-    
 }

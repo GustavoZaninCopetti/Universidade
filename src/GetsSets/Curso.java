@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package GetsSets;
 
 /**
  *
  * @author Gustavo
  */
 public class Curso {
-    Integer curso_codigo;
-    String curso_nome;
-    String curso_localizacao;
-    Integer curso_semestres;
-    Float curso_valor;
+
+    private Integer curso_codigo;
+    private String curso_nome;
+    private String curso_localizacao;
+    private Integer curso_semestres;
+    private Float curso_valor;
 
     public Integer getCurso_codigo() {
         return curso_codigo;
@@ -55,5 +56,5 @@ public class Curso {
     public void setCurso_valor(Float curso_valor) {
         this.curso_valor = curso_valor;
     }
-            
+
 }

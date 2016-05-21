@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package Views;
 
 import javax.swing.JOptionPane;
 
@@ -92,7 +92,7 @@ public class Login extends javax.swing.JFrame {
     private void jBLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jBLoginMouseClicked
         // TODO add your handling code here:
 
-        if (jTUsuario.getText().equals("gustavo") && jPSenha.getText().equals("13") ){
+        if (jTUsuario.getText().equals("gustavo") && jPSenha.getText().equals("123") ){
             //this.dispose();
             MenuPrincipal menup = new MenuPrincipal();
             menup.setVisible(true);

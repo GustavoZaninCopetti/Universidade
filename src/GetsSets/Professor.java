@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Universidade;
+package GetsSets;
 
 import java.util.Date;
 
@@ -12,14 +12,14 @@ import java.util.Date;
  * @author Gustavo
  */
 public class Professor {
-    
-    Integer prof_codigo;
-    String prof_nome;
-    String prof_cidade;
-    String prof_sexo;
-    String prof_estado;
-    String prof_materia;
-    Date prof_datacad;
+
+    private Integer prof_codigo;
+    private String prof_nome;
+    private String prof_cidade;
+    private String prof_sexo;
+    private String prof_estado;
+    private String prof_materia;
+    private Date prof_datacad;
 
     public Integer getProf_codigo() {
         return prof_codigo;
@@ -76,6 +76,5 @@ public class Professor {
     public void setProf_datacad(Date prof_datacad) {
         this.prof_datacad = prof_datacad;
     }
-    
-    
+
 }
