@@ -49,6 +49,7 @@ public class ProfessorListener implements ActionListener{
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
+                gravarArq.printf("Cadastro de Professores \n");
                 gravarArq.printf(p.getProf_codigo()  + "\n");
                 gravarArq.printf(p.getProf_nome()  + "\n");
                 gravarArq.printf(p.getProf_cidade()  + "\n");

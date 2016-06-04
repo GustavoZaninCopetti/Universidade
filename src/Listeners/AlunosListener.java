@@ -39,6 +39,7 @@ public class AlunosListener implements ActionListener {
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
+                gravarArq.printf("Cadastro de Alunos \n ");
                 gravarArq.printf(a.getAlunos_codigo() + "\n");
                 gravarArq.printf(a.getAlunos_nome()  + "\n");
                 gravarArq.printf(a.getAlunos_cidade()  + "\n");

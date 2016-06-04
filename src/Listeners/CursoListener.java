@@ -45,6 +45,7 @@ public class CursoListener implements ActionListener {
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
+                gravarArq.printf("Cadastro de Cursos \n ");
                 gravarArq.printf(c.getCurso_nome() + "\n");
                 gravarArq.printf(c.getCurso_localizacao()  + "\n");
                 gravarArq.printf(c.getCurso_semestres()  + "\n");
