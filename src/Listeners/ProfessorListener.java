@@ -33,16 +33,8 @@ public class ProfessorListener implements ActionListener{
     public void actionPerformed(ActionEvent pe) {
         if("salvarprof".equals(pe.getActionCommand())){
             
-            Professor p = professor.getInfoProfessor();
+           Professor p = professor.getInfoProfessor();
             
-        /* JOptionPane.showMessageDialog(null,"Codigo: " + p.getProf_codigo() + "\n" +
-                                            "Nome: " + p.getProf_nome() + "\n "  + 
-                                            "Cidade: " + p.getProf_cidade() + "\n " + 
-                                            "Sexo: " + p.isProf_sexo() + "\n " + 
-                                            "Estado: " + p.getProf_estado()+ "\n " + 
-                                            "Materia: " + p.getProf_materia());*/
-         
-         
            try {
                 FileWriter arq = new FileWriter("C:/Users/comp1/Desktop/Java/Universidade/LOG.txt",true);
                 PrintWriter gravarArq = new PrintWriter(arq);
@@ -50,12 +42,12 @@ public class ProfessorListener implements ActionListener{
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
                 gravarArq.printf("Cadastro de Professores \n");
-                gravarArq.printf(p.getProf_codigo()  + "\n");
-                gravarArq.printf(p.getProf_nome()  + "\n");
-                gravarArq.printf(p.getProf_cidade()  + "\n");
-                gravarArq.printf(p.isProf_sexo() + "\n");
-                gravarArq.printf(p.getProf_estado() + "\n");
-                gravarArq.printf(p.getProf_materia() + "\n");
+                gravarArq.printf("Codigo: " + p.getProf_codigo()  + "\n");
+                gravarArq.printf("Nome: " + p.getProf_nome()  + "\n");
+                gravarArq.printf("Cidade: " + p.getProf_cidade()  + "\n");
+                gravarArq.printf("Sexo: " + p.isProf_sexo() + "\n");
+                gravarArq.printf("Estado: " + p.getProf_estado() + "\n");
+                gravarArq.printf("Materia: " + p.getProf_materia() + "\n");
                 arq.close();
             } catch (IOException ec) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");

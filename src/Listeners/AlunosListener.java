@@ -40,11 +40,11 @@ public class AlunosListener implements ActionListener {
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
                 gravarArq.printf("Cadastro de Alunos \n ");
-                gravarArq.printf(a.getAlunos_codigo() + "\n");
-                gravarArq.printf(a.getAlunos_nome()  + "\n");
-                gravarArq.printf(a.getAlunos_cidade()  + "\n");
-                gravarArq.printf(a.isAlunos_sexo()  + "\n");
-                gravarArq.printf(a.getAlunos_estado()  + "\n");
+                gravarArq.printf("Codigo: " + a.getAlunos_codigo() + "\n");
+                gravarArq.printf("Nome: " + a.getAlunos_nome()  + "\n");
+                gravarArq.printf("Cidade: " + a.getAlunos_cidade()  + "\n");
+                gravarArq.printf("Sexo: " + a.isAlunos_sexo()  + "\n");
+                gravarArq.printf("Estado: " + a.getAlunos_estado()  + "\n");
                 arq.close();
             } catch (IOException ec) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");

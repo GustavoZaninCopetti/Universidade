@@ -46,10 +46,11 @@ public class CursoListener implements ActionListener {
                 Date date = new Date();
                 gravarArq.printf("\n" + date + "\n");
                 gravarArq.printf("Cadastro de Cursos \n ");
-                gravarArq.printf(c.getCurso_nome() + "\n");
-                gravarArq.printf(c.getCurso_localizacao()  + "\n");
-                gravarArq.printf(c.getCurso_semestres()  + "\n");
-                gravarArq.printf(c.getCurso_valor() + "\n");
+                gravarArq.printf("Codigo: " + c.getCurso_codigo() + "\n");
+                gravarArq.printf("Nome: " + c.getCurso_nome() + "\n");
+                gravarArq.printf("Localização: " + c.getCurso_localizacao()  + "\n");
+                gravarArq.printf("Semestre: " + c.getCurso_semestres()  + "\n");
+                gravarArq.printf("Valor: " + c.getCurso_valor() + "\n");
                 arq.close();
             } catch (IOException ec) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");
