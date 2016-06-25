@@ -11,6 +11,7 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.swing.JOptionPane;
+import Dao.AlunosDao;
 
 public class AlunosListener implements ActionListener {
 
@@ -24,9 +25,12 @@ public class AlunosListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         if ("salvar".equals(e.getActionCommand())) {
+            
+            AlunosDao dao = new AlunosDao();
 
             Alunos a = aluno.getInfoAluno();
-
+            
+            
            /* JOptionPane.showMessageDialog(null, "Codigo: " + a.getAlunos_codigo() + "\n"
                                               + "Nome: " + a.getAlunos_nome() + "\n "
                                               + "Cidade: " + a.getAlunos_cidade() + "\n "
@@ -34,7 +38,7 @@ public class AlunosListener implements ActionListener {
                                               + "Estado: " + a.getAlunos_estado());*/
             
              try {
-                FileWriter arq = new FileWriter("C:/Users/comp1/Desktop/Java/Universidade/LOG.txt",true);
+                FileWriter arq = new FileWriter("C:/Users/Bruno Lopes/Desktop/LOG.txt",true);
                 PrintWriter gravarArq = new PrintWriter(arq);
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = new Date();
@@ -49,16 +53,30 @@ public class AlunosListener implements ActionListener {
             } catch (IOException ec) {
                 JOptionPane.showMessageDialog(null, "Erro ao salvar o arquivo");
             }
-
+             
+             dao.insert(a);
+             
+             
         }
         if ("sair".equals(e.getActionCommand())) {
             aluno.dispose();
         }
         if("excluiraluno".equals(e.getActionCommand())){
+            AlunosDao dao = new AlunosDao();
+            Alunos a = aluno.getInfoAluno();
+            dao.delete(a);
             JOptionPane.showMessageDialog(null, "Excluiu");
+            
         }
         if("consultaralunos".equals(e.getActionCommand())){
-             JOptionPane.showMessageDialog(null, "Consultar");
+            AlunosDao dao = new AlunosDao();
+            Alunos a = aluno.getInfoAluno();
+                 
+            
+            Alunos resultado = dao.consultarAluno(a.getAlunos_codigo());
+            
+            aluno.atualiarAluno(resultado);
+            
         }
 
     }

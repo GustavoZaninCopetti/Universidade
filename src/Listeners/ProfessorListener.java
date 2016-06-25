@@ -36,7 +36,7 @@ public class ProfessorListener implements ActionListener{
            Professor p = professor.getInfoProfessor();
             
            try {
-                FileWriter arq = new FileWriter("C:/Users/comp1/Desktop/Java/Universidade/LOG.txt",true);
+                FileWriter arq = new FileWriter("C:/Users/Bruno Lopes/Desktop/LOG.txt",true);
                 PrintWriter gravarArq = new PrintWriter(arq);
                 DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
                 Date date = new Date();

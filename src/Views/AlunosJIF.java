@@ -63,7 +63,7 @@ public class AlunosJIF extends javax.swing.JInternalFrame {
         jPanel1 = new javax.swing.JPanel();
         jRMasc = new javax.swing.JRadioButton();
         jRFem = new javax.swing.JRadioButton();
-        jCEstados = new javax.swing.JComboBox<>();
+        jCEstados = new javax.swing.JComboBox<String>();
         jBSalvar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jTCidade = new javax.swing.JTextField();
@@ -128,7 +128,7 @@ public class AlunosJIF extends javax.swing.JInternalFrame {
                 .addComponent(jRFem))
         );
 
-        jCEstados.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
+        jCEstados.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO" }));
 
         jBSalvar.setText("Salvar");
         jBSalvar.addActionListener(acoesbotao);
@@ -158,6 +158,11 @@ public class AlunosJIF extends javax.swing.JInternalFrame {
         AConsultar.setText("Consultar");
         AConsultar.addActionListener(acoesbotao);
         AConsultar.setActionCommand("consultaralunos");
+        AConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AConsultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -277,6 +282,26 @@ public class AlunosJIF extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_AExcluirActionPerformed
 
+    private void AConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AConsultarActionPerformed
+        // TODO add your handling code here:
+        
+                
+    }//GEN-LAST:event_AConsultarActionPerformed
+
+    
+    public void atualiarAluno(Alunos aluno){
+        jTNome.setText(aluno.getAlunos_nome());
+        jTCidade.setText(aluno.getAlunos_cidade());
+        
+        String teste = (String)jCEstados.getSelectedItem();
+        
+        
+        
+        
+            
+        
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton AConsultar;

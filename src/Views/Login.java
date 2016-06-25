@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
      */
     public void retornar() {
         try {
-            FileReader arq = new FileReader("C:/Users/comp1/Desktop/Java/Universidade/login.txt");
+            FileReader arq = new FileReader("C:/Users/Bruno Lopes/Desktop/login.txt");
             BufferedReader lerArq = new BufferedReader(arq);
             String linha = lerArq.readLine();
             jTUsuario.setText(linha);
@@ -41,7 +41,7 @@ public class Login extends javax.swing.JFrame {
     }
     public void salvar(){
         try {
-                FileWriter arq = new FileWriter("C:/Users/comp1/Desktop/Java/Universidade/login.txt");
+                FileWriter arq = new FileWriter("C:/Users/Bruno Lopes/Desktop/login.txt");
                 PrintWriter gravarArq = new PrintWriter(arq);
                 gravarArq.printf(jTUsuario.getText() + "\n");
                 gravarArq.printf(jPSenha.getText());
